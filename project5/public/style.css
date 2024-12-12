@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+body.login-cover {
+  background-image: url("login_bk1.JPG");
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-size: 150%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+body.register {
+  background-image: url("register_bk.jpeg");
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-size: 150%;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+h1.login {
+  font-size: 2.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  -webkit-text-stroke: 0.75px rgb(207, 255, 168);
+  font-weight: bold;
+  color: rgba(152, 204, 9, 0.918);
+  text-shadow: 2px 20px 5px rgba(61, 94, 5, 0.601); /* Glow effect for readability */
+}
+
+h1.register {
+  font-size: 2.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  -webkit-text-stroke: 0.75px rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* setting width of all content containers to be the same */
+.form-container,
+.all-posts,
+.nav {
+  width: 60%;
+}
+
+.nav {
+  position: fixed; /* Stays at the top */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  z-index: 10;
+}
+
+/* grabbing all a tags inside of the nav bar */
+.nav a {
+  margin: 10px;
+  display: inline-block;
+}
+
+h1.public {
+  position: fixed;
+  top: 60px; /* Position under the navbar */
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  -webkit-text-stroke: 2px rgba(164, 164, 164, 0.86);
+  color: rgba(220, 233, 255, 0.925);
+  text-shadow: 2px 70px 5px rgba(214, 249, 252, 0.548); /* Glow effect for readability */
+  z-index: 10;
+}
+
+#p5-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  z-index: 0; /* Keep it behind everything else */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.form-container input[type="text"] {
+  flex-grow: 3;
+}
+.form-container input[type="submit"] {
+  flex-grow: 1;
+}
+
+.post {
+  width: 80%;
+  border: 1px hotpink solid;
+  /* shorthand for margin-top and margin-bottom */
+  margin: 2px 0px;
+  padding: 5px;
+  position: relative;
+}
+
+.post a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.remove-button {
+  display: none;
+}
+
+.remove-label {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.background-image.active {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.background-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease, filter 1s ease;
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.all-posts {
+  margin-top: 20px;
+}

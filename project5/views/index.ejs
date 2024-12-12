@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Your Garden</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="main.js"></script>
+  </head>
+  <body class="secret-garden">
+    <%- include('nav.ejs') %>
+
+    <div class="visits-counter"><%=visitsToSite%></div>
+    <div class="form-container">
+      <% if (posts.length < 3) { %>
+      <form method="POST" action="/upload" enctype="multipart/form-data">
+        <div class="form-content-container">
+          <div class="submit-container">
+            <div>
+              <label for="file-upload" class="custom-file-upload"> </label>
+              <input id="file-upload" name="theimage" type="file" />
+            </div>
+            <div>
+              <input type="submit" name="submitbutton" value="Submit" />
+            </div>
+          </div>
+        </div>
+      </form>
+      <% } else { %>
+      <p>You have reached the upload limit of 3 images</p>
+      <% } %>
+    </div>
+
+    <div class="all-posts">
+      <% if (posts.length > 0) { %>
+      <div id="background-slider">
+        <% posts.forEach((post, index) => { %>
+        <img
+          src="<%= post.image %>"
+          alt="Background Image <%= index + 1 %>"
+          class="background-image <%= index === 0 ? 'active' : '' %>"
+        />
+        <form action="/remove" method="POST" class="delete-button">
+          <input type="hidden" name="postId" value="<%= post._id %>" />
+          <input type="submit" value="Delete Image" />
+        </form>
+        <% }) %>
+      </div>
+      <% } else { %>
+      <p>No images uploaded</p>
+      <% } %>
+    </div>
+  </body>
+</html>

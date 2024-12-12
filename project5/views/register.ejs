@@ -1,0 +1,36 @@
+<%- include('nav.ejs') %>
+<body class="register">
+  <div class="form-container">
+    <h1 class="register">Create a secret place</h1>
+    <form method="POST" action="/signup" enctype="multipart/form-data">
+      <div class="register-content-container">
+        <input
+          type="text"
+          name="fullname"
+          placeholder="your full name"
+          class="login-full-name"
+        />
+
+        <input
+          type="text"
+          name="username"
+          placeholder="choose a username"
+          class="login-username"
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="choose a password"
+          class="login-password"
+        />
+        <input
+          type="submit"
+          name="submitbutton"
+          value="Build my Garden!"
+          class="submit-btn"
+        />
+      </div>
+    </form>
+  </div>
+</body>
